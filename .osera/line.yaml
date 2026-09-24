@@ -1,0 +1,5 @@
+line: spring-graphql-1.0
+repository: patch-spring-graphql
+members:
+  - org.springframework.graphql:spring-graphql
+  - org.springframework.graphql:spring-graphql-test
