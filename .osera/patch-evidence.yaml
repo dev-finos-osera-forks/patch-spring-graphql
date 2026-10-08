@@ -1,0 +1,17 @@
+schema: osera-patch-evidence/0.1.0
+producer: cp-osera-dev
+release: 1.0.6.1-osera-00001
+baseline: v1.0.6+patch.baseline
+fixes:
+  - cve: CVE-2026-41700
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41700
+    artifacts:
+      - org.springframework.graphql:spring-graphql
+    note: New in this release; ported onto 1.0.6; fixed at 1.0.6.1-backpatch-00001 (backpatch-spring-graphql@2f28cf0).
+tests:
+  commit: 1e4e11f89db9a7d05b5b8950841aa1bee733cf03
+  command: ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=1.0.6.1-osera-00001 -p spring-graphql test --rerun-tasks --tests org.springframework.graphql.server.webflux.GraphQlWebSocketHandlerTests --tests org.springframework.graphql.server.webmvc.GraphQlWebSocketHandlerTests
+  runtime: OpenJDK 17.0.9 (Zulu), Gradle wrapper of the repository
+  report: spring-graphql-1.0.6.1-osera-00001-tests.zip
+  result: pass
+  note: the regression tests the fix commits touched, 32 test(s) run, 0 failed, at the tested commit
